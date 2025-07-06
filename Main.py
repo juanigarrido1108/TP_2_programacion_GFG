@@ -10,25 +10,24 @@ from Terminado import *
 
 pygame.init()
 
-pygame.display.set_caption("PREGUNTADOS 314")
+pygame.display.set_caption("GRUPO GFG\nPREGUNTADOS")
 icono = pygame.image.load("icono.png")
 pygame.display.set_icon(icono)
 
 pantalla = pygame.display.set_mode(PANTALLA)
 corriendo = True
 reloj = pygame.time.Clock()
-datos_juego ={"puntuacion":0,"vidas":3,"nombre":"","tiempo_restante":TIEMPO_JUEGO,"volumen_musica":0,"indice":0}
+datos_juego ={"puntuacion":0,"vidas":3,"nombre":"","tiempo_restante":TIEMPO_JUEGO,"volumen_musica":50,"indice":0}
 ventana_actual = "menu"
 bandera_juego = False
 mezclar_lista(lista_preguntas)
 #Deberia venir del json
 lista_rankings = []
 
-#MUSICA EN TODO EL JUEGO
-# porcentaje_volumen = datos_juego["volumen_musica"] / 100
-# pygame.mixer.music.load("musica.mp3")
-# pygame.mixer.music.set_volume(porcentaje_volumen)
-# pygame.mixer.music.play(-1)
+porcentaje_volumen = datos_juego["volumen_musica"] / 100
+pygame.mixer.music.load("musica.mp3")
+pygame.mixer.music.set_volume(porcentaje_volumen)
+pygame.mixer.music.play(-1)
 
 while corriendo:
     reloj.tick(FPS)
@@ -43,18 +42,18 @@ while corriendo:
     elif ventana_actual == "juego":
         if bandera_juego == False:
             #MUSICA SOLO EN EL JUEGO
-            porcentaje_volumen = datos_juego["volumen_musica"] / 100
-            pygame.mixer.music.load("musica.mp3")
-            pygame.mixer.music.set_volume(porcentaje_volumen)
-            pygame.mixer.music.play(-1)
+            # porcentaje_volumen = datos_juego["volumen_musica"] / 100
+            # pygame.mixer.music.load("musica.mp3")
+            # pygame.mixer.music.set_volume(porcentaje_volumen)
+            # pygame.mixer.music.play(-1)
             bandera_juego = True
         ventana_actual = mostrar_juego(pantalla,cola_eventos,datos_juego,lista_preguntas)
     elif ventana_actual == "ajustes":
         ventana_actual = mostrar_ajustes(pantalla,cola_eventos,datos_juego)
         
         #MUSICA EN TODO EL JUEGO
-        # porcentaje_volumen = datos_juego["volumen_musica"] / 100
-        # pygame.mixer.music.set_volume(porcentaje_volumen)
+        porcentaje_volumen = datos_juego["volumen_musica"] / 100
+        pygame.mixer.music.set_volume(porcentaje_volumen)
     elif ventana_actual == "rankings":
         ventana_actual = mostrar_rankings(pantalla,cola_eventos,lista_rankings)
     elif ventana_actual == "salir":

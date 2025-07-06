@@ -3,40 +3,41 @@ from Constantes import *
 from Funciones import *
 
 pygame.init()
-lista_botones = crear_botones_menu()
-print(lista_botones)
-fondo_menu = pygame.transform.scale(pygame.image.load("fondo.jpg"),PANTALLA)
-
+lista_botones = crear_botones_menu("textura_respuesta.jpg",ANCHO_BOTON,ALTO_BOTON,115,125,4)
+fondo_menu = pygame.transform.scale(pygame.image.load("fondo.jpg"),PANTALLA)  
+lista_nombres_botones = ["JUGAR","AJUSTES","RANKINGS","SALIR"]
 
 def mostrar_menu(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event]) -> str:
+    #Manejar los eventos
+    retorno = manejar_eventos(cola_eventos)
+    #Dibujamos los cambios en pantalla
+    dibujar_pantalla(pantalla)
+
+    return retorno
+
+def manejar_eventos(cola_eventos:list[pygame.event.Event]):
     retorno = "menu"
-    #Gestionar Eventos
+    
     for evento in cola_eventos:
-        #Actualizaciones
-        if evento.type == pygame.QUIT:
-            retorno = "salir"
-        elif evento.type == pygame.MOUSEBUTTONDOWN:
+        if evento.type == pygame.MOUSEBUTTONDOWN:
+            #SOLO CLICK IZQUIERDO
             if evento.button == 1:
                 for i in range(len(lista_botones)):
                     if lista_botones[i]["rectangulo"].collidepoint(evento.pos):
-                        if i == BOTON_JUGAR:
+                        CLICK_SONIDO.play()
+                        if i == 0:
                             retorno = "juego"
-                        elif i == BOTON_PUNTUACIONES:
-                            retorno = "rankings"
-                        elif i == BOTON_CONFIG:
+                        elif i == 1:
                             retorno = "ajustes"
-                        else:
+                        elif i == 2:
+                            retorno = "rankings"
+                        elif i == 3:
                             retorno = "salir"
-        
     
-    #Dibujar en pygame
+    return retorno
+
+def dibujar_pantalla(pantalla:pygame.Surface) -> None:
     pantalla.blit(fondo_menu,(0,0))
     for i in range(len(lista_botones)):
         pantalla.blit(lista_botones[i]["superficie"],lista_botones[i]["rectangulo"])
-    mostrar_texto(lista_botones[BOTON_JUGAR]["superficie"],"-  JUGAR  -",(135,20),FUENTE_TEXTO,COLOR_AMARILLO_PASTEL)#aparece
-    mostrar_texto(lista_botones[BOTON_PUNTUACIONES]["superficie"],"- RANKING -",(120,20),FUENTE_TEXTO,COLOR_AMARILLO_PASTEL)
-    mostrar_texto(lista_botones[BOTON_CONFIG]["superficie"],"- CONFIGURACION -",(120,20),FUENTE_TEXTO,COLOR_AMARILLO_PASTEL)
-    mostrar_texto(lista_botones[BOTON_SALIR]["superficie"],"-  SALIR  -",(135,20),FUENTE_TEXTO,COLOR_AMARILLO_PASTEL)#aparece
-
-
-    return retorno
+        mostrar_texto(lista_botones[i]["superficie"],lista_nombres_botones[i],(80,10),FUENTE_TEXTO,COLOR_NEGRO)

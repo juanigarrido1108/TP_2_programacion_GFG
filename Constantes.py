@@ -7,8 +7,8 @@ COLOR_VERDE = (0,255,0)
 COLOR_ROJO = (255,0,0)
 COLOR_AZUL = (0,0,255)
 COLOR_VIOLETA = (134,23,219)
-ANCHO = 500
-ALTO = 500
+ANCHO = 600
+ALTO = 600
 PANTALLA = (ANCHO,ALTO)
 FPS = 30
 
@@ -30,7 +30,7 @@ CLICK_SONIDO = pygame.mixer.Sound("click.mp3")
 ERROR_SONIDO = pygame.mixer.Sound("error.mp3")
 FUENTE_PREGUNTA = pygame.font.SysFont("Arial",28,True)
 FUENTE_RESPUESTA = pygame.font.SysFont("Arial",20,True)
-FUENTE_TEXTO = pygame.font.SysFont("Arial",25,True)
+FUENTE_TEXTO = pygame.font.SysFont("Courier New",25,True)
 FUENTE_VOLUMEN = pygame.font.SysFont("Arial",50,True)
 FUENTE_CUADRO = pygame.font.SysFont("Arial",40,True)
 
