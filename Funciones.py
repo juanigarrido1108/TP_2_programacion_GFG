@@ -29,9 +29,9 @@ def crear_elemento_juego(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int) -> 
 def crear_respuestas_preguntados(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int) -> list:
     lista_respuestas = []
 
-    for i in range(3):
+    for i in range(4):
         respuesta = crear_elemento_juego(textura,ancho,alto,pos_x,pos_y)
-        pos_y += 80
+        pos_y += 90
         lista_respuestas.append(respuesta)
         
     return lista_respuestas
