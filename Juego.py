@@ -1,7 +1,8 @@
 import pygame
+import json
 from Constantes import *
-from Preguntas import *
 from Funciones import *
+
 
 pygame.init()
 
@@ -22,6 +23,7 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
     
     for evento in cola_eventos:
         if evento.type == pygame.MOUSEBUTTONDOWN:
+            CLICK_SONIDO.play()
             if evento.button == 1:
                 for i in range(len(lista_respuestas)):
                     if lista_respuestas[i]["rectangulo"].collidepoint(evento.pos):
@@ -47,14 +49,14 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
         pantalla.blit(lista_respuestas[i]["superficie"],lista_respuestas[i]["rectangulo"])
     
     #cuadro_pregunta["superficie"].blit(texto_pregunta,(0,0))
-    mostrar_texto(cuadro_pregunta["superficie"],pregunta_actual["pregunta"],(25,10),FUENTE_TEXTO)
-    mostrar_texto(lista_respuestas[0]["superficie"],pregunta_actual["respuesta_1"],(20,20),FUENTE_TEXTO,COLOR_NEGRO)
-    mostrar_texto(lista_respuestas[1]["superficie"],pregunta_actual["respuesta_2"],(20,20),FUENTE_TEXTO,COLOR_NEGRO)
-    mostrar_texto(lista_respuestas[2]["superficie"],pregunta_actual["respuesta_3"],(20,20),FUENTE_TEXTO,COLOR_NEGRO)
-    mostrar_texto(lista_respuestas[3]["superficie"],pregunta_actual["respuesta_4"],(20,20),FUENTE_TEXTO,COLOR_NEGRO)
+    mostrar_texto(cuadro_pregunta["superficie"],pregunta_actual["pregunta"],(15,10),FUENTE_PREGUNTA)
+    mostrar_texto(lista_respuestas[0]["superficie"],pregunta_actual["respuesta_1"],(10,10),FUENTE_RESPUESTA,COLOR_NEGRO)
+    mostrar_texto(lista_respuestas[1]["superficie"],pregunta_actual["respuesta_2"],(10,10),FUENTE_RESPUESTA,COLOR_NEGRO)
+    mostrar_texto(lista_respuestas[2]["superficie"],pregunta_actual["respuesta_3"],(10,10),FUENTE_RESPUESTA,COLOR_NEGRO)
+    mostrar_texto(lista_respuestas[3]["superficie"],pregunta_actual["respuesta_4"],(10,10),FUENTE_RESPUESTA,COLOR_NEGRO)
 
-    mostrar_texto(pantalla,f"PUNTUACION: {datos_juego['puntuacion']}",(10,10),FUENTE_TEXTO)
-    mostrar_texto(pantalla,f"VIDAS: {datos_juego['vidas']}",(10,40),FUENTE_TEXTO)
-    mostrar_texto(pantalla,f"TIEMPO: {datos_juego['tiempo_restante']} seg",(300,10),FUENTE_TEXTO)
+    mostrar_texto(pantalla,f"PUNTUACION: {datos_juego['puntuacion']}",(10,10),FUENTE_TEXTO,COLOR_BLANCO)
+    mostrar_texto(pantalla,f"VIDAS: {datos_juego['vidas']}",(10,40),FUENTE_TEXTO,COLOR_BLANCO)
+    mostrar_texto(pantalla,f"TIEMPO: {datos_juego['tiempo_restante']} seg",(300,10),FUENTE_TEXTO,COLOR_BLANCO)
     
     return retorno

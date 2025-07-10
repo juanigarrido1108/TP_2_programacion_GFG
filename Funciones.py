@@ -1,4 +1,5 @@
 import random
+import json
 from Constantes import *
 import pygame
 
@@ -70,6 +71,7 @@ def pasar_pregunta(lista_preguntas:list,indice:int,cuadro_pregunta:dict,lista_re
     return pregunta_actual
 
 def crear_botones_menu(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int,cantidad_botones:int) -> list:
+    
     lista_botones = []
 
     for i in range(cantidad_botones):
@@ -78,3 +80,33 @@ def crear_botones_menu(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int,cantid
         lista_botones.append(boton)
         
     return lista_botones
+
+def actualizar_ranking_eficiente(datos_juego:dict, lista_rankings:dict) -> dict:
+                    
+                    # Agregar nuevo jugador
+    # Si el diccionario ya existe
+    lista_rankings = {}
+
+    # Agregar el elemento
+    lista_rankings[0] = {
+        "posicion": 0,
+        "nombre": datos_juego["nombre"],
+        "puntuacion": datos_juego["puntuacion"]
+    }                
+    # lista_rankings.insert({
+    #     "posicion": 0,
+    #     "nombre": datos_juego["nombre"],
+    #     "puntuacion": datos_juego["puntuacion"]
+    # })
+                    
+                    # Ordenar y tomar top 10
+    lista_rankings.sort(key=lambda x: x["puntuacion"], reverse=True)
+    lista_rankings = lista_rankings[:10]
+                    
+                    # Actualizar posiciones
+    for i, jugador in enumerate(lista_rankings):
+        jugador["posicion"] = i + 1
+        with open("ranking.json", "w", encoding="utf-8") as archivo:
+            json.dump({"ranking": lista_rankings}, archivo, indent=4, ensure_ascii=False)
+                    
+    return lista_rankings

@@ -1,4 +1,4 @@
-lista_preguntas = [
+[
     {"pregunta":"¿En qué ciudad nació Lionel Messi?", "respuesta_1":"Rosario", "respuesta_2":"Buenos Aires", "respuesta_3":"Córdoba", "respuesta_4":"Mar del Plata", "respuesta_correcta":1},
     {"pregunta": "¿Cuál es la capital de Argentina?", "respuesta_1": "Buenos Aires", "respuesta_2": "Córdoba", "respuesta_3": "Rosario", "respuesta_4": "La Plata", "respuesta_correcta": 1},
     {"pregunta": "¿En qué año ganó Argentina su primer mundial de fútbol?", "respuesta_1": "1978", "respuesta_2": "1986", "respuesta_3": "2002", "respuesta_4": "1930", "respuesta_correcta": 1},
