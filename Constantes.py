@@ -29,6 +29,8 @@ TAMAÑO_BOTON_VOLVER = (100,40)
 CLICK_SONIDO = pygame.mixer.Sound("click.mp3")
 ERROR_SONIDO = pygame.mixer.Sound("error.mp3")
 COMODIN_SONIDO = pygame.mixer.Sound("comodin_sonido.mp3")
+ERROR = pygame.mixer.Sound("ERROR_PREGUNTA.mp3")
+ACIERTO = pygame.mixer.Sound("acierto.mp3")
 
 MUSICA_TERMINADO = pygame.mixer.Sound("musica_terminado.mp3")
 

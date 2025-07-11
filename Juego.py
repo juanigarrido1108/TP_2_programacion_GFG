@@ -9,7 +9,7 @@ pygame.init()
 fondo_pantalla = pygame.transform.scale(pygame.image.load("fondo_juego.jpg"),PANTALLA)
 cuadro_pregunta = crear_elemento_juego("textura_pregunta.jpg",ANCHO_PREGUNTA,ALTO_PREGUNTA,120,80)
 lista_respuestas = crear_respuestas_preguntados("textura_respuesta.jpg",ANCHO_BOTON,ALTO_BOTON,175,245)
-boton_volver_terminado = crear_elemento_juego("textura_volver.jpg",100,40,20,500)
+boton_volver_terminado = crear_elemento_juego("textura_volver.png",100,40,20,500)
 boton_puntaje_doble = crear_elemento_juego("puntaje_doble.png",100,40,20,395)
 boton_pasar = crear_elemento_juego("pasar.png",100,40,20,275)
 boton_doble_chance = crear_elemento_juego("doble.png",100,40,20,165)
@@ -55,12 +55,14 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
                     elif boton_doble_chance["rectangulo"].collidepoint(evento.pos):
                         if comodines["doble_chance"] == 0:
                             COMODIN_SONIDO.play()
+                            
                             comodines["doble_chance"] = 1
-                            banderas["doble_chance"] = False                           
+                            banderas["doble_chance"] = False
+                            
                     elif lista_respuestas[i]["rectangulo"].collidepoint(evento.pos):
                         respuesta = (i + 1)
                         if verificar_respuesta(datos_juego,pregunta_actual,respuesta) == True:
-                            CLICK_SONIDO.play() #cambiar sonido correcto
+                            ACIERTO.play() #cambiar sonido correcto
                             datos_juego["correctas_seguidas"] += 1
                             if datos_juego["correctas_seguidas"] >= 5:
                                 datos_juego["vidas"] += 1
@@ -73,11 +75,12 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
                                 comodines["doble_chance"] = 0
                                 banderas["doble_chance"] = False
                                 datos_juego["correctas_seguidas"] = 0 
-                                ERROR_SONIDO.play() #cambiar sonido incorrecto
+                                ERROR.play()
                                 break
                             else:
                                 datos_juego["correctas_seguidas"] = 0
-                                ERROR_SONIDO.play()
+                                ERROR.play()
+
                         datos_juego["indice"] += 1
                         if datos_juego["indice"] >= len(lista_preguntas):
                             datos_juego["indice"] = 0
