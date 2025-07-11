@@ -20,11 +20,8 @@ pygame.display.set_icon(icono)
 pantalla = pygame.display.set_mode(PANTALLA)
 corriendo = True
 reloj = pygame.time.Clock()
-<<<<<<< HEAD
+
 datos_juego ={"puntuacion":0,"vidas":3,"nombre":"","tiempo_restante":TIEMPO_JUEGO,"volumen_musica":0,"volumen_efectos":0,"indice":0,"correctas_seguidas":0}
-=======
-datos_juego ={"puntuacion":0,"vidas":3,"nombre":"","tiempo_restante":TIEMPO_JUEGO,"volumen_musica":0,"volumen_efectos":0,"indice":0}
->>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 ventana_actual = "menu"
 bandera_juego = False
 bandera_musica = False

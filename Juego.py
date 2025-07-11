@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import pygame
 import json
 from Constantes import *
