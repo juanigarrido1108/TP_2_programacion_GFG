@@ -55,10 +55,8 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
                     elif boton_doble_chance["rectangulo"].collidepoint(evento.pos):
                         if comodines["doble_chance"] == 0:
                             COMODIN_SONIDO.play()
-                            
                             comodines["doble_chance"] = 1
-                            banderas["doble_chance"] = False
-                            
+                            banderas["doble_chance"] = False                           
                     elif lista_respuestas[i]["rectangulo"].collidepoint(evento.pos):
                         respuesta = (i + 1)
                         if verificar_respuesta(datos_juego,pregunta_actual,respuesta) == True:
@@ -80,7 +78,6 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
                             else:
                                 datos_juego["correctas_seguidas"] = 0
                                 ERROR_SONIDO.play()
-
                         datos_juego["indice"] += 1
                         if datos_juego["indice"] >= len(lista_preguntas):
                             datos_juego["indice"] = 0
