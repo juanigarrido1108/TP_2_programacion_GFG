@@ -1,6 +1,9 @@
-<<<<<<< HEAD
 {
   "ranking": [
+    {
+      "nombre": "RODRI",
+      "puntuacion": 575
+    },
     {
       "nombre": "ASD",
       "puntuacion": 375
@@ -26,12 +29,8 @@
       "puntuacion": 25
     },
     {
-      "nombre": "RODRIGO",
-      "puntuacion": 0
-    },
-    {
-      "nombre": "RODRIGO",
-      "puntuacion": 0
+      "nombre": "titi",
+      "puntuacion": 25
     },
     {
       "nombre": "RODRIGO",
@@ -42,59 +41,4 @@
       "puntuacion": 0
     }
   ]
-=======
-{
-    "ranking": [
-        {
-            "posicion": 1,
-            "nombre": "RODRIGO",
-            "puntuacion": 325
-        },
-        {
-            "posicion": 2,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 3,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 4,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 5,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 6,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 7,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 8,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 9,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        },
-        {
-            "posicion": 10,
-            "nombre": "RODRIGO",
-            "puntuacion": 0
-        }
-    ]
->>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 }
