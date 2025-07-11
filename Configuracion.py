@@ -7,7 +7,7 @@ boton_suma_musica = crear_elemento_juego("mas.webp",60,60,420,200)
 boton_resta_musica = crear_elemento_juego("menos.webp",60,60,20,200)
 boton_suma_efectos = crear_elemento_juego("mas.webp",60,60,420,400)
 boton_resta_efectos = crear_elemento_juego("menos.webp",60,60,20,400)
-boton_volver = crear_elemento_juego("textura_volver.jpg",100,40,10,10)
+boton_volver = crear_elemento_juego("textura_volver.png",100,40,10,10)
 boton_silencio = crear_elemento_juego("silencio.png",60,60,20,300)
 boton_silencio_efectos = crear_elemento_juego("silencio.png",60,60,20,500)
 
@@ -17,6 +17,9 @@ def mostrar_ajustes(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event
     porcentaje_volumen_efectos = datos_juego["volumen_efectos"] / 100
     CLICK_SONIDO.set_volume(porcentaje_volumen_efectos)
     ERROR_SONIDO.set_volume(porcentaje_volumen_efectos)
+    COMODIN_SONIDO.set_volume(porcentaje_volumen_efectos)
+    ERROR.set_volume(porcentaje_volumen_efectos)
+    ACIERTO.set_volume(porcentaje_volumen_efectos)
 
     #Gestionar los eventos
     porcentaje_volumen_efectos = datos_juego["volumen_efectos"] / 100

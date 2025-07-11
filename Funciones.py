@@ -84,10 +84,10 @@ def crear_botones_menu(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int,cantid
 def actualizar_ranking_eficiente(datos_juego:dict, datos_cargados:dict) -> dict:
     
     # Actualiza el ranking de manera eficiente:
-    # 1. Agrega el nuevo registro
-    # 2. Ordena por puntuación (descendente)
-    # 3. Mantiene solo los mejores 100 registros (opcional)
-    # 4. Guarda en el archivo JSON
+    # Agrega el nuevo registro
+    # Ordena por puntuación (descendente)
+    # Mantiene solo los mejores 100 registros (opcional)
+    # Guarda en el archivo JSON
     
     # Determinar la estructura del JSON y extraer la lista
     # Extraer la lista del JSON con estructura fija {"ranking": [...]}

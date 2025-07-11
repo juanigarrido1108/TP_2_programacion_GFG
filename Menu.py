@@ -3,9 +3,9 @@ from Constantes import *
 from Funciones import *
 
 pygame.init()
-# lista_botones = crear_botones_menu("textura_respuesta.jpg",ANCHO_BOTON,ALTO_BOTON,350,125,4)
-lista_botones = crear_botones_menu("textura_volver.jpg",ANCHO_BOTON,ALTO_BOTON,325,135,4)
-fondo_menu = pygame.transform.scale(pygame.image.load("fondo.jpg"),PANTALLA)  
+
+lista_botones = crear_botones_menu("textura_volver.png",ANCHO_BOTON,ALTO_BOTON,255,100,4)
+fondo_menu = pygame.transform.scale(pygame.image.load("fondo.png"),PANTALLA) 
 lista_nombres_botones = ["JUGAR","AJUSTES","RANKINGS","SALIR"]
 
 def mostrar_menu(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event]) -> str:

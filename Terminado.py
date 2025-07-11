@@ -8,7 +8,7 @@ pygame.init()
 
 cuadro_texto = crear_elemento_juego("textura_terminado.jpg",ANCHO_CUADRO,ALTO_CUADRO,120,150)
 fondo_terminado = pygame.transform.scale(pygame.image.load("terminado.jpg"),PANTALLA)
-boton_volver_terminado = crear_elemento_juego("textura_volver.jpg",100,40,200,500)
+boton_volver_terminado = crear_elemento_juego("textura_volver.png",100,40,200,500)
 
 def mostrar_fin_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],datos_juego:dict,comodines,banderas) -> str:
     retorno = "terminado"

@@ -6,7 +6,7 @@ from Funciones import *
 
 pygame.init()
 
-boton_volver = crear_elemento_juego("textura_volver.jpg",100,40,10,10)
+boton_volver = crear_elemento_juego("textura_volver.png",100,40,10,10)
 fondo_rankings = pygame.transform.scale(pygame.image.load("ranking.png"),PANTALLA)
 
 def mostrar_rankings(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],lista_rankings:list) -> str:
