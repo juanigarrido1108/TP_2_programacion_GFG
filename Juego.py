@@ -13,10 +13,9 @@ lista_respuestas = crear_respuestas_preguntados("textura_respuesta.jpg",ANCHO_BO
 evento_tiempo = pygame.USEREVENT 
 pygame.time.set_timer(evento_tiempo,1000)
 
-def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],datos_juego:dict,lista_preguntas:list) -> str:    
+def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],datos_juego:dict,lista_preguntas:list) -> str:
     retorno = "juego"
     pregunta_actual = lista_preguntas[datos_juego["indice"]]
-    
     if datos_juego["vidas"] == 0 or datos_juego["tiempo_restante"] == 0:
         print("GAME OVER")
         retorno = "terminado"
@@ -30,7 +29,13 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
                         respuesta = (i + 1)
                         if verificar_respuesta(datos_juego,pregunta_actual,respuesta) == True:
                             CLICK_SONIDO.play()
+                            datos_juego["correctas_seguidas"] += 1
+                            if datos_juego["correctas_seguidas"] >= 2:
+                                datos_juego["vidas"] += 1
+                                datos_juego["tiempo_restante"] += 7
+                                datos_juego["correctas_seguidas"] = 0
                         else:
+                            datos_juego["correctas_seguidas"] = 0 
                             ERROR_SONIDO.play()
                         
                         datos_juego["indice"] += 1
@@ -58,5 +63,6 @@ def mostrar_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event],
     mostrar_texto(pantalla,f"PUNTUACION: {datos_juego['puntuacion']}",(10,10),FUENTE_TEXTO,COLOR_BLANCO)
     mostrar_texto(pantalla,f"VIDAS: {datos_juego['vidas']}",(10,40),FUENTE_TEXTO,COLOR_BLANCO)
     mostrar_texto(pantalla,f"TIEMPO: {datos_juego['tiempo_restante']} seg",(300,10),FUENTE_TEXTO,COLOR_BLANCO)
-    
+    mostrar_texto(pantalla,f"{datos_juego["correctas_seguidas"]}",(300,30),FUENTE_TEXTO,COLOR_BLANCO)
+
     return retorno

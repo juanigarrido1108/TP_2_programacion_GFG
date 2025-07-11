@@ -41,7 +41,12 @@ def mostrar_fin_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Eve
                 else:
                     datos_juego["nombre"] += tecla_presionada
             elif tecla_presionada == "return":
-                actualizar_ranking_eficiente(datos_juego,lista_rankings)
+                # Cargar el ranking existente
+                with open("ranking.json", "r", encoding="utf-8") as archivo:
+                    datos_cargados = json.load(archivo)
+                # Actualizar el ranking
+                actualizar_ranking_eficiente(datos_juego, datos_cargados)
+                # Reinicia estadísticas y continua
                 reiniciar_estadisticas(datos_juego)
                 retorno = "menu"
                 MUSICA_TERMINADO.stop()

@@ -81,32 +81,38 @@ def crear_botones_menu(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int,cantid
         
     return lista_botones
 
-def actualizar_ranking_eficiente(datos_juego:dict, lista_rankings:dict) -> dict:
-                    
-                    # Agregar nuevo jugador
-    # Si el diccionario ya existe
-    lista_rankings = {}
-
-    # Agregar el elemento
-    lista_rankings[0] = {
-        "posicion": 0,
+def actualizar_ranking_eficiente(datos_juego:dict, datos_cargados:dict) -> dict:
+    
+    # Actualiza el ranking de manera eficiente:
+    # 1. Agrega el nuevo registro
+    # 2. Ordena por puntuación (descendente)
+    # 3. Mantiene solo los mejores 100 registros (opcional)
+    # 4. Guarda en el archivo JSON
+    
+    # Determinar la estructura del JSON y extraer la lista
+    # Extraer la lista del JSON con estructura fija {"ranking": [...]}
+    if isinstance(datos_cargados, dict) and "ranking" in datos_cargados:
+        lista_rankings = datos_cargados["ranking"]
+    else:
+        # Si no tiene la estructura esperada, crear lista vacía
+        lista_rankings = []
+        
+    # Agregar el nuevo registro
+    nuevo_registro = {
         "nombre": datos_juego["nombre"],
         "puntuacion": datos_juego["puntuacion"]
-    }                
-    # lista_rankings.insert({
-    #     "posicion": 0,
-    #     "nombre": datos_juego["nombre"],
-    #     "puntuacion": datos_juego["puntuacion"]
-    # })
-                    
-                    # Ordenar y tomar top 10
+        }
+    lista_rankings.append(nuevo_registro)
+        
+    # Ordenar por puntuación (de mayor a menor)
     lista_rankings.sort(key=lambda x: x["puntuacion"], reverse=True)
+        
+    # Mantiene solo los mejores 10 registros para optimizar
     lista_rankings = lista_rankings[:10]
-                    
-                    # Actualizar posiciones
-    for i, jugador in enumerate(lista_rankings):
-        jugador["posicion"] = i + 1
-        with open("ranking.json", "w", encoding="utf-8") as archivo:
-            json.dump({"ranking": lista_rankings}, archivo, indent=4, ensure_ascii=False)
-                    
+        
+    # Guardar en el archivo JSON manteniendo la estructura {"ranking": [...]}
+    estructura_json = {"ranking": lista_rankings}
+    with open("ranking.json", "w", encoding="utf-8") as archivo:
+        json.dump(estructura_json, archivo, indent=2, ensure_ascii=False)
+    
     return lista_rankings
