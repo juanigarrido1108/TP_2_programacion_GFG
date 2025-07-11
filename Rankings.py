@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import pygame
 import json
 from Constantes import *
@@ -24,6 +27,30 @@ def mostrar_rankings(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Even
     mostrar_texto(boton_volver["superficie"], "VOLVER", (5, 5), FUENTE_TEXTO, COLOR_NEGRO)
     
     pos_y = 85
+<<<<<<< HEAD
+    with open("ranking.json", "r", encoding="utf-8") as archivo:
+        datos = json.load(archivo)
+
+    if "ranking" in datos:
+        ranking = datos["ranking"]
+        for i in range(min(10, len(ranking))):  # min() para evitar errores si hay menos de 10 elementos
+            texto = f"{i+1}: {ranking[i]['nombre']} - {ranking[i]['puntuacion']} puntos"
+            mostrar_texto(pantalla, texto, (110, pos_y), FUENTE_TEXTO, COLOR_NEGRO)
+            pos_y += 35
+    # with open("ranking.json", "r", encoding="utf-8") as archivo:
+    #     datos = json.load(archivo)
+    #     # ranking_nombre = datos["ranking"]  # Extraer la lista
+    #     # ranking_puntuacion = datos ["ranking"]
+
+    
+    # # Mostrar los datos del ranking
+    # for i in range(10):
+    #     texto = f"{i}: {datos[i]["nombre"]} - {datos[i]["puntuacion"]} puntos"
+    #     mostrar_texto(pantalla, texto, (130, pos_y), FUENTE_TEXTO, COLOR_NEGRO)
+    #     pos_y += 35
+    
+    return retorno
+=======
     
     try:
         with open("ranking.json", "r", encoding="utf-8") as archivo:
@@ -88,3 +115,4 @@ def mostrar_rankings(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Even
     return retorno
     
 >>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5

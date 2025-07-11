@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import pygame
 pygame.init()
 
@@ -43,6 +46,8 @@ BOTON_JUGAR = 0
 CANTIDAD_VIDAS = 3
 PUNTUACION_ACIERTO = 100
 PUNTUACION_ERROR = 25
+<<<<<<< HEAD
+=======
 =======
 import pygame
 pygame.init()
@@ -86,4 +91,5 @@ CANTIDAD_VIDAS = 3
 PUNTUACION_ACIERTO = 100
 PUNTUACION_ERROR = 25
 >>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 TIEMPO_JUEGO = 30

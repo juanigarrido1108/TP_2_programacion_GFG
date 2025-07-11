@@ -49,7 +49,8 @@ from Constantes import *
 from Funciones import *
 
 pygame.init()
-lista_botones = crear_botones_menu("textura_respuesta.jpg",ANCHO_BOTON,ALTO_BOTON,115,125,4)
+
+lista_botones = crear_botones_menu("textura_volver.jpg",ANCHO_BOTON,ALTO_BOTON,325,135,4)
 fondo_menu = pygame.transform.scale(pygame.image.load("fondo.jpg"),PANTALLA)  
 lista_nombres_botones = ["JUGAR","AJUSTES","RANKINGS","SALIR"]
 
@@ -86,5 +87,4 @@ def dibujar_pantalla(pantalla:pygame.Surface) -> None:
     pantalla.blit(fondo_menu,(0,0))
     for i in range(len(lista_botones)):
         pantalla.blit(lista_botones[i]["superficie"],lista_botones[i]["rectangulo"])
-        mostrar_texto(lista_botones[i]["superficie"],lista_nombres_botones[i],(80,10),FUENTE_TEXTO,COLOR_NEGRO)
->>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+        mostrar_texto(lista_botones[i]["superficie"],lista_nombres_botones[i],(62,10),FUENTE_MENU,COLOR_NEGRO)

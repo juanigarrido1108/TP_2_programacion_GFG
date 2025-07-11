@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import random
 import json
 from Constantes import *
@@ -82,6 +85,43 @@ def crear_botones_menu(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int,cantid
         
     return lista_botones
 
+<<<<<<< HEAD
+def actualizar_ranking_eficiente(datos_juego:dict, datos_cargados:dict) -> dict:
+    
+    # Actualiza el ranking de manera eficiente:
+    # 1. Agrega el nuevo registro
+    # 2. Ordena por puntuación (descendente)
+    # 3. Mantiene solo los mejores 100 registros (opcional)
+    # 4. Guarda en el archivo JSON
+    
+    # Determinar la estructura del JSON y extraer la lista
+    # Extraer la lista del JSON con estructura fija {"ranking": [...]}
+    if isinstance(datos_cargados, dict) and "ranking" in datos_cargados:
+        lista_rankings = datos_cargados["ranking"]
+    else:
+        # Si no tiene la estructura esperada, crear lista vacía
+        lista_rankings = []
+        
+    # Agregar el nuevo registro
+    nuevo_registro = {
+        "nombre": datos_juego["nombre"],
+        "puntuacion": datos_juego["puntuacion"]
+        }
+    lista_rankings.append(nuevo_registro)
+        
+    # Ordenar por puntuación (de mayor a menor)
+    lista_rankings.sort(key=lambda x: x["puntuacion"], reverse=True)
+        
+    # Mantiene solo los mejores 10 registros para optimizar
+    lista_rankings = lista_rankings[:10]
+        
+    # Guardar en el archivo JSON manteniendo la estructura {"ranking": [...]}
+    estructura_json = {"ranking": lista_rankings}
+    with open("ranking.json", "w", encoding="utf-8") as archivo:
+        json.dump(estructura_json, archivo, indent=2, ensure_ascii=False)
+    
+    return lista_rankings
+=======
 def actualizar_ranking_eficiente(datos_juego:dict, lista_rankings:dict) -> dict:
                     
                     # Agregar nuevo jugador
@@ -193,3 +233,4 @@ def crear_botones_menu(textura:str,ancho:int,alto:int,pos_x:int,pos_y:int,cantid
         
     return lista_botones
 >>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5

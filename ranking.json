@@ -1,3 +1,48 @@
+<<<<<<< HEAD
+{
+  "ranking": [
+    {
+      "nombre": "ASD",
+      "puntuacion": 375
+    },
+    {
+      "nombre": "vidita",
+      "puntuacion": 300
+    },
+    {
+      "nombre": "tu papa",
+      "puntuacion": 275
+    },
+    {
+      "nombre": "TUQUI",
+      "puntuacion": 100
+    },
+    {
+      "nombre": "NEGRO",
+      "puntuacion": 25
+    },
+    {
+      "nombre": "NIGGA",
+      "puntuacion": 25
+    },
+    {
+      "nombre": "RODRIGO",
+      "puntuacion": 0
+    },
+    {
+      "nombre": "RODRIGO",
+      "puntuacion": 0
+    },
+    {
+      "nombre": "RODRIGO",
+      "puntuacion": 0
+    },
+    {
+      "nombre": "RODRIGO",
+      "puntuacion": 0
+    }
+  ]
+=======
 {
     "ranking": [
         {
@@ -51,4 +96,5 @@
             "puntuacion": 0
         }
     ]
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 }

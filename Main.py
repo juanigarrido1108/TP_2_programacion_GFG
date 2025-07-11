@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import pygame
 from Constantes import *
 from Funciones import *
@@ -17,7 +20,8 @@ pygame.display.set_icon(icono)
 pantalla = pygame.display.set_mode(PANTALLA)
 corriendo = True
 reloj = pygame.time.Clock()
-datos_juego ={"puntuacion":0,"vidas":3,"nombre":"","tiempo_restante":TIEMPO_JUEGO,"volumen_musica":0,"volumen_efectos":0,"indice":0}
+
+datos_juego ={"puntuacion":0,"vidas":3,"nombre":"","tiempo_restante":TIEMPO_JUEGO,"volumen_musica":0,"volumen_efectos":0,"indice":0,"correctas_seguidas":0}
 ventana_actual = "menu"
 bandera_juego = False
 bandera_musica = False
@@ -26,6 +30,10 @@ with open("ranking.json", "r", encoding="utf-8") as archivo:
     lista_rankings = json.load(archivo)
 with open('Preguntas.json', 'r',encoding='utf-8') as archivo:
     lista_preguntas = json.load(archivo)
+<<<<<<< HEAD
+
+=======
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 mezclar_lista(lista_preguntas)
 
 porcentaje_volumen = datos_juego["volumen_musica"] / 100
@@ -70,13 +78,18 @@ while corriendo:
         if bandera_juego == True:
             pygame.mixer.music.stop()
             bandera_juego = False
+<<<<<<< HEAD
+=======
             
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
         ventana_actual = mostrar_fin_juego(pantalla,cola_eventos,datos_juego,lista_rankings)
         if ventana_actual != "terminado":
             bandera_menu = False
     
     pygame.display.flip()
 
+<<<<<<< HEAD
+=======
 =======
 import pygame
 from Constantes import *
@@ -150,4 +163,5 @@ while corriendo:
     pygame.display.flip()
 
 >>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 pygame.quit()

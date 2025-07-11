@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import pygame
 import json
 from Constantes import *
@@ -42,7 +45,16 @@ def mostrar_fin_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Eve
                 else:
                     datos_juego["nombre"] += tecla_presionada
             elif tecla_presionada == "return":
+<<<<<<< HEAD
+                # Cargar el ranking existente
+                with open("ranking.json", "r", encoding="utf-8") as archivo:
+                    datos_cargados = json.load(archivo)
+                # Actualizar el ranking
+                actualizar_ranking_eficiente(datos_juego, datos_cargados)
+                # Reinicia estadísticas y continua
+=======
                 actualizar_ranking_eficiente(datos_juego,lista_rankings)
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
                 reiniciar_estadisticas(datos_juego)
                 retorno = "menu"
                 MUSICA_TERMINADO.stop()
@@ -66,6 +78,8 @@ def mostrar_fin_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Eve
         mostrar_texto(cuadro_texto["superficie"],"INGRESE SU NOMBRE",(10,10),FUENTE_TEXTO,"#8A7A7A")
         
     return retorno
+<<<<<<< HEAD
+=======
 =======
 import pygame
 from Constantes import *
@@ -121,3 +135,4 @@ def mostrar_fin_juego(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Eve
 
 
 >>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5

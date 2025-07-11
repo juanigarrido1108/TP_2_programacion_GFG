@@ -1,4 +1,7 @@
 <<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
 import pygame
 from Constantes import *
 from Funciones import *
@@ -92,6 +95,8 @@ def mostrar_ajustes(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event
     mostrar_texto(boton_volver["superficie"],"VOLVER",(5,5),FUENTE_TEXTO,COLOR_NEGRO)
     
     return retorno
+<<<<<<< HEAD
+=======
 =======
 import pygame
 from Constantes import *
@@ -161,3 +166,4 @@ def mostrar_ajustes(pantalla:pygame.Surface,cola_eventos:list[pygame.event.Event
     
     return retorno
 >>>>>>> a6773ec83242dec1242961dbbf327379917bae6d
+>>>>>>> 497b780a43f2321a4b0e3d7d62486be9782059f5
